@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+
+.container{
+    background:white;
+    margin: 0 auto;
+    max-width:80%;
+}
+
+.truck{
+    width:65%;
+    margin-left:20%;
+}
+
+.header{
+    font-family: 'Vina Sans', cursive;
+    text-shadow: 2px 2px red;
+    font-size:450%;
+    text-align: center;
+    margin-top:15%;
+}
+
+.header2{
+    font-family: 'Bruno Ace SC', cursive;
+    text-shadow: 2px 2px blue;
+    font-size:450%;
+    margin-top:8%;
+}
+
+nav{
+    font-size: 150%;
+}
+
+a{
+    text-decoration: none;
+}
+
+#pad{
+    padding:3%;
+}
+
+.under{
+    text-decoration: overline;
+}
+
+.right{
+    text-align: center;
+    padding:3%;
+    text-shadow: 1px 1px red;
+    text-decoration: underline;
+    font-size: 250%;
+}
+
+#bill{
+    padding:5%;
+}
+
+.center{
+    text-align: center;
+}
+
+.move{
+    margin-left:29%;
+}
+
+h1{
+    font-family: 'Vina Sans', cursive;
+}
+
+h2{
+    font-family: 'Vina Sans', cursive;
+}
+
+h3{
+    font-family: 'Vina Sans', cursive;
+}
+
+h4{
+    font-family: 'Vina Sans', cursive;
+}
+
+h5{
+    font-family: 'Poltawski Nowy', serif;
+}
+
+p{
+    font-family: 'Poltawski Nowy', serif;
+}
+
+li{
+    font-family: 'Poltawski Nowy', serif;
+}
+
+body{
+    background:red;
+}
+
+section{
+    margin-top: 5%;
+}
+
+.small{
+    width:75%;
+}
+
+aside{
+    margin-top: 5%;
+}
+
+#under{
+    text-align: center;
+    text-shadow: 1px 1px red;
+    text-decoration: underline;
+}
+
+#create{
+    padding:1%;
+    width: 75%;
+}
+
+.order{
+    border: 5px solid black;
+    box-shadow: 5px 5px 20px red;
+}
+
+.under{
+    text-decoration: underline;
+}
+
+.box{
+    border-width: 80%;
+    border: 5px dotted blue;
+    box-shadow: 5px 5px 40px red;
+    text-align: center;
+    padding:2%;
+}
+
+.box2{
+    border-width:80%;
+    border:10px double red;
+    box-shadow: 5px 5px 40px black;
+    padding:2%;
+}
+
+.box3{
+    border-width: 80%;
+    border:8px solid black;
+    padding:2%;
+    box-shadow: 5px 5px 40px black;
+}
+
+.box4{
+    border-width: 80%;
+    border: 5px solid black;
+    box-shadow: 5px 5px 40px red;
+    padding:2%;
+}
+
+article{
+    margin-top: 5%;
+}
+
+.food{
+    width: 75%;
+}
+
+footer{
+    margin-top: 5%;
+}

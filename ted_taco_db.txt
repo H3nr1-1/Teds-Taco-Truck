@@ -1,0 +1,190 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: May 02, 2023 at 05:00 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `ted-taco`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `customer_id` int(11) NOT NULL,
+  `cusername` varchar(25) NOT NULL,
+  `cpassword` varchar(25) NOT NULL,
+  `fname` varchar(25) NOT NULL,
+  `lname` varchar(25) NOT NULL,
+  `phone_number` int(11) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `credit_card_type` varchar(25) NOT NULL,
+  `card_number` varchar(50) NOT NULL,
+  `shipping` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customer_id`, `cusername`, `cpassword`, `fname`, `lname`, `phone_number`, `email`, `credit_card_type`, `card_number`, `shipping`) VALUES
+(3, 'henri28', 'chenri', 'Chris', 'Henri', 1234567, 'c@henri.com', 'Visa', '123456789123', '1234 S. 24th Street, Las Vegas NV 89044'),
+(5, 'joe', 'doe', 'Joeseph', 'Doern', 6453458, 'joe@doe.com', 'Master Card', '357498563214', '9876 Main Street, Las Vegas Nv 54852');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_order`
+--
+
+CREATE TABLE `customer_order` (
+  `customer_order_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `customer_order`
+--
+
+INSERT INTO `customer_order` (`customer_order_id`, `customer_id`, `menu_id`) VALUES
+(40, 3, 1),
+(41, 3, 10),
+(45, 3, 11),
+(47, 5, 7),
+(48, 5, 13),
+(49, 5, 11),
+(50, 3, 4),
+(51, 3, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+CREATE TABLE `menu` (
+  `menu_id` int(11) NOT NULL,
+  `menu_item` varchar(25) NOT NULL,
+  `price` varchar(25) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `info` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`menu_id`, `menu_item`, `price`, `image`, `info`) VALUES
+(1, 'Beef Taco', '2.75', 'images/beef-taco.jpg', 'Grilled and seasoned beef served inside a soft tortilla shell with lettuce, tomatoes, sour cream. '),
+(2, 'Chicken Taco', '3.25', 'images/chicken-taco.jpg', 'Grilled and seasoned chicken, served in a soft tortilla shell with lettuce, tomatoes, sour cream, and pico de gayo.'),
+(3, 'Beef Enchilada', '5.50', 'images/beef-enchilada.jpg', 'Seasoned beef inside a tortilla, covered in red sauce.  Served with pico de gayo and beans.'),
+(4, 'Chicken Enchilada', '6.25', 'images/chicken-enchilada.jpg', 'Seasoned chicken inside a tortilla, covered in red sauce.  Served with pico de gayo and beans.'),
+(5, 'Chicken Chimichanga', '7.50', 'images/chimi.jpg', 'Deep fried tortilla, stuffed with seasoned chicken, topped with cheese and cheese sauce.  Served with lettuce, pico de gayo, Mexican rice and beans.'),
+(6, 'Bean Burrito', '5.75', 'images/burrito.jpg', 'Tortilla stuffed with beans and beef, topped with cheese and cheese sauce.  Served with lettuce, pico de gayo, Mexican rice.'),
+(7, 'Chicken Quesadilla', '6.50', 'images/quesadilla.jpg', 'Cheese and Chicken quesadilla, served with sour cream.'),
+(8, 'Nachos', '4.50', 'images/nachos.jpg', 'Tortilla chips topped with nacho cheese, ground beef, jalapenos, lettuce and guacamole.  '),
+(10, 'Chicken Taquitos', '6.50', 'images/taquitos.jpg', 'Deep Fried beef taquitos served with beans, rice, guacamole, and pico de gayo'),
+(11, 'Soda Can', '1.75', 'images/soda.jpg', 'Pepsi, Mtn. Dew, Sierra Mist, Diet Pepsi, Diet Mtn. Dew, Coca Cola, Sprite, Mello Yello'),
+(13, 'Chef Salad', '4.25', 'images/salad.jpg', 'Lettuce, Tomatoe, Cheese, Onions, Avocado. Served with choice of dressing.  French, Ranch, Thousand Island');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `submit_order`
+--
+
+CREATE TABLE `submit_order` (
+  `submit_ order_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `customer_order_id` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `submit_order`
+--
+
+INSERT INTO `submit_order` (`submit_ order_id`, `customer_id`, `customer_order_id`) VALUES
+(3, 3, '40'),
+(6, 5, '47'),
+(8, 5, 'Array'),
+(9, 3, '50');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`customer_id`);
+
+--
+-- Indexes for table `customer_order`
+--
+ALTER TABLE `customer_order`
+  ADD PRIMARY KEY (`customer_order_id`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`menu_id`);
+
+--
+-- Indexes for table `submit_order`
+--
+ALTER TABLE `submit_order`
+  ADD PRIMARY KEY (`submit_ order_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `customer_order`
+--
+ALTER TABLE `customer_order`
+  MODIFY `customer_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `submit_order`
+--
+ALTER TABLE `submit_order`
+  MODIFY `submit_ order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
