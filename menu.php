@@ -62,12 +62,12 @@ if($_SESSION["customer-login"] != "true"){
                                 foreach($menu as $m){
                             ?>
                             
-                            <tr>
+                            <tr id="order_description">
                                 <td class="text-center"><img class="food" src="<?php echo $m["image"];?>"></td>
                                 <td class="text-center"><?php echo $m["menu_item"];?></td>
                                 <td class="text-center"><?php echo "$"; echo $m["price"];?></td>
                             </tr>
-                            <tr>
+                            <tr id="order_description">
                                 <td class="text-center" colspan="8"><?php echo $m["info"];?></td>
                             </tr>
                             <tr>  
@@ -82,7 +82,6 @@ if($_SESSION["customer-login"] != "true"){
                                 }
                               ?>                    
                                                 
-                          </thead>
                         </table>
                     </div>
                     <div class="col-md-2"></div>

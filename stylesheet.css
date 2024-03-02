@@ -64,6 +64,10 @@ a{
     margin-left:29%;
 }
 
+#order_description{
+    font-family: 'Poltawski Nowy', serif;
+}
+
 h1{
     font-family: 'Vina Sans', cursive;
 }

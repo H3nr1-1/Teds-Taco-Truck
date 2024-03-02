@@ -108,7 +108,7 @@ foreach ($menu as $m) {
                             foreach ($menu as $m) {
                                 ?>
 
-                                <tr>
+                                <tr id="order_description">
                                     <td><img class="food" src="<?php echo $m["image"]; ?>"></td>
                                     <td>
                                         <?php echo $m["menu_item"]; ?>
@@ -214,7 +214,7 @@ foreach ($menu as $m) {
                         ?>
 
                             <input type="hidden" name="customer_id" value="<?php echo $_SESSION["customer_id"]; ?>">
-                            <button onclick="return confirm('Are you sure you want to place this order?')" type="submit" class="btn btn-primary" name="submit_order">Submit Order</button>
+                            <button onclick="return confirm('Does this complete your order?')" type="submit" class="btn btn-primary" name="submit_order">Submit Order</button>
                     </form>
 
                 </div>
