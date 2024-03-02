@@ -56,7 +56,8 @@ if($_SESSION["admin-login"] != "true"){
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="stylesheet.css" type="text/css">
-		<title>Ted's Tasty Taco Truck</title>
+        <link rel="icon" href="taco_truck.jpg" type="image/x-icon">
+		<title>Ted's Taco Truck</title>
 	</head>
 	<body>
         
@@ -81,47 +82,48 @@ if($_SESSION["admin-login"] != "true"){
             
             <article>
                 <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <table class="table table-striped order">
-                          <thead>
-                            <tr>
-                              <th scope="col"></th>
-                              <th scope="col">Menu Item</th>
-                              <th scope="col">Price</th>
-                              <th scope="col">Description</th>
-                              <th scope="col">Edit Item</th>
-                              <th scope="col">Delete Item</th>
-                            </tr>
-                            
-                            <?php                                              
-                                foreach($menu as $m){
-                            ?>
-                            
-                            <tr>
-                                <td><img class="food" src="<?php echo $m["image"];?>"></td>
-                                <td><?php echo $m["menu_item"];?></td>
-                                <td><?php echo "$"; echo $m["price"];?></td>
-                                <td><?php echo $m["info"];?></td>
-                                
-                                <td><form action="update.php" method="GET">
-                                    <input type="hidden" name="menu_id" value="<?php echo $m["menu_id"];?>">
-                                    <button type="submit">Edit Menu Item</button>
-                                    </form></td>
-                                
-                                <td><form action="delete.php" method="GET">
-                                    <input type="hidden" name="menu_id" value="<?php echo $m["menu_id"];?>">
-                                    <button onclick="return confirm('Are you sure you want to delete this menu item?')" type="submit">Delete Menu Item</button>
-                                    </form></td>
-                                
-                            <?php
-                                }
-                              ?>   
-                                                                            
-                          </thead>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <table class="table-responsive table-striped order">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col"></th>
+                                    <th class="text-center" scope="col">Menu Item</th>
+                                    <th class="text-center" scope="col">Price</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" scope="col">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($menu as $m) { ?>
+                                    <!-- Row for details -->
+                                    <tr>
+                                        <td class="text-center"><img class="food" src="<?php echo $m["image"];?>"></td>
+                                        <td class="text-center"><?php echo $m["menu_item"];?></td>
+                                        <td class="text-center"><?php echo "$"; echo $m["price"];?></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" colspan="8"><?php echo $m["info"];?></td>
+                                    </tr>
+                                    <!-- Row for buttons -->
+                                    <tr>
+                                        <td class="text-center">
+                                            <form action="update.php" method="GET">
+                                                <input type="hidden" name="menu_id" value="<?php echo $m["menu_id"];?>">
+                                                <button type="submit" class="btn btn-primary">Edit Menu Item</button>
+                                            </form>
+                                            <form action="delete.php" method="GET">
+                                                <input type="hidden" name="menu_id" value="<?php echo $m["menu_id"];?>">
+                                                <button onclick="return confirm('Are you sure you want to delete this menu item?')" type="submit" class="btn btn-danger">Delete Menu Item</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php } ?>   
+                            </tbody>
                         </table>
                     </div>
-                    <div class="col-md-2"></div>
+                    <div class="col-md-1"></div>
                 </div>            
             </article>
             

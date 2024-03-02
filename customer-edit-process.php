@@ -67,7 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheet.css" type="text/css">
-    <title>Ted's Tasty Taco Truck</title>
+    <link rel="icon" href="taco_truck.jpg" type="image/x-icon">
+    <title>Ted's Taco Truck</title>
 </head>
 
 <body>

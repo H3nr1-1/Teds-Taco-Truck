@@ -1,5 +1,5 @@
 <?php 
-$servername = "mysql:host=localhost;dbname=ted-taco";
+$servername = "mysql:host=localhost;dbname=teds-taco";
 $username = "root";
 $password = "root";
 
@@ -8,7 +8,7 @@ try {
 //    echo "connected successfully";
     }
 
-catch(PDQException $e)
+catch(PDOException $e)
     {
 //    echo "Connection Failed: " . $e->getMessage();
     }

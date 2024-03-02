@@ -71,7 +71,8 @@ foreach ($menu as $m) {
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheet.css" type="text/css">
-    <title>Ted's Tasty Taco Truck</title>
+    <link rel="icon" href="taco_truck.jpg" type="image/x-icon">
+    <title>Ted's Taco Truck</title>
 </head>
 
 <body>
@@ -101,7 +102,6 @@ foreach ($menu as $m) {
                                 <th scope="col"></th>
                                 <th scope="col">Menu Item</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Remove from cart</th>
                             </tr>
 
                             <?php
@@ -117,17 +117,19 @@ foreach ($menu as $m) {
                                         <?php echo "$";
                                         echo $m["price"]; ?>
                                     </td>
-                                    <td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
                                         <form action="remove.php" method="GET">
                                             <input type="hidden" name="customer_order_id"
                                                 value="<?php echo $m["customer_order_id"]; ?>">
-                                            <button type="submit">Remove<br>From<br>Cart</button>
+                                            <button type="submit" class="btn btn-danger">Remove From Cart</button>
                                         </form>
                                     </td>
 
                                     <?php
-                            }
-                            ?>
+                                    }
+                                ?>
 
                         </thead>
                     </table>
@@ -201,20 +203,19 @@ foreach ($menu as $m) {
                 <div class="col-md-3">
                     <h3>Check Out</h3>
 
-                    <?php
-                    foreach ($menu as $m) {
+                    <form action="checkout.php" method="POST"> <!-- Use POST method -->
+                        <?php
+                        foreach ($menu as $m) {
+                        ?>
+                            
+                            <input type="hidden" name="menu_ids[]" value="<?php echo $m["customer_order_id"]; ?>">
+                        <?php
+                        }
                         ?>
 
-                        <form action="checkout.php" method="GET">
-                            <input type="hidden" name="customer_order_id" value="<?php echo $m["customer_order_id"]; ?>">
                             <input type="hidden" name="customer_id" value="<?php echo $_SESSION["customer_id"]; ?>">
-                            <button onclick="return confirm('Are you sure you want to place this order?')"
-                                type="submit">Confirm Order</button>
-                        </form>
-
-                        <?php
-                    }
-                    ?>
+                            <button onclick="return confirm('Are you sure you want to place this order?')" type="submit" class="btn btn-primary" name="submit_order">Submit Order</button>
+                    </form>
 
                 </div>
                 <div class="col-md-5"></div>
